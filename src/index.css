@@ -1,19 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-burgundy-50: #fdf2f4;
-  --color-burgundy-100: #fce7ea;
-  --color-burgundy-200: #f9d0d7;
-  --color-burgundy-300: #f3a8b5;
-  --color-burgundy-400: #eb758e;
-  --color-burgundy-500: #df4a6a;
-  --color-burgundy-600: #cc2952;
-  --color-burgundy-700: #ab1d43;
-  --color-burgundy-800: #8f1b3d;
-  --color-burgundy-900: #7a1a38;
-}
-
-/* Reset default Vite styles */
+/* Base resets */
 *,
 *::before,
 *::after {
@@ -40,14 +29,17 @@ body {
   color: #1a1a2e;
 }
 
-/* Reset button defaults so Tailwind classes work cleanly */
-button {
-  all: unset;
-  cursor: pointer;
-  box-sizing: border-box;
+/* Spinner animation for loading state */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.animate-spinner {
+  animation: spin 1s linear infinite;
 }
