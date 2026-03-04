@@ -5,7 +5,8 @@ import { supabase } from "../../lib/supabaseClient";
 import NavBar from "./Components/NavBar";
 import SideNav from "./Components/SideNav";
 import Overview from "./DashboardPages/Overview/Overview";
-import Members from "./DashboardPages/Members/Members";
+import { AddMemberForm } from "./DashboardPages/Members/AddMembersForms";
+import AddMemberPage from "./DashboardPages/Members/AddMember";
 
 import { 
   FaUsers, 
@@ -15,6 +16,7 @@ import {
   FaCheckCircle,
   FaCog
 } from "react-icons/fa";
+import AddMember from "./DashboardPages/Members/AddMember";
 
 
 const Dashboard = () => {
@@ -78,7 +80,8 @@ const Dashboard = () => {
       <SideNav />
       <Routes>
         <Route path="/" element={<Overview />} />
-        <Route path="/members" element={<Members />} />
+        <Route path="/members" element={<AddMember />} />
+        <Route path="/add-member" element={<AddMemberPage />} />
         <Route path="/events" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Events Page</h1></div>} />
         <Route path="/take-attendance" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Take Attendance Page</h1></div>} />
         <Route path="/qr-attendance" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">QR Attendance Page</h1></div>} />
