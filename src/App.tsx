@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from './lib/supabaseClient'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Auth from './Pages/Auth/Components/LoginForms'
-import DashboardPage from './Pages/Dashboard/DasboardPage'
+import DashboardPage from './Pages/Dashboard/Dasboard'
 // import './App.css'
 
 function App() {
@@ -32,11 +35,25 @@ function App() {
     )
   }
 
-  if (!session) {
-    return <Auth />
-  }
-
-  return <DashboardPage />
+  return (
+    <Router>
+      <Routes>
+        <Route 
+          path="/login" 
+          element={session ? <Navigate to="/dashboard" replace /> : <Auth />} 
+        />
+        <Route 
+          path="/dashboard/*" 
+          element={session ? <DashboardPage /> : <Navigate to="/login" replace />} 
+        />
+        <Route 
+          path="/" 
+          element={<Navigate to={session ? "/dashboard" : "/login"} replace />} 
+        />
+      </Routes>
+      <ToastContainer />
+    </Router>
+  )
 }
 
 export default App
