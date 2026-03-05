@@ -224,12 +224,12 @@ const AddMember = () => {
 
       <div className="relative z-10">
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           {/* Tab Navigation */}
           <motion.div 
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            className=" border border-white/20 p-12 mt-4 mb-2"
+            className=" border border-white/20 "
           >
             <div className="flex items-center gap-3">
               <div className="flex items-center bg-white/60 backdrop-blur-sm rounded-lg p-1 border border-white/20">
