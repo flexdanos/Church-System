@@ -5,7 +5,8 @@ import { supabase } from "../../lib/supabaseClient";
 import NavBar from "./Components/NavBar";
 import SideNav from "./Components/SideNav";
 import Overview from "./DashboardPages/Overview/Overview";
-import Members from "./DashboardPages/Members/Members";
+import { AddMemberForm } from "./DashboardPages/Members/AddMembersForms";
+import AddMemberPage from "./DashboardPages/Members/AddMember";
 
 import { 
   FaUsers, 
@@ -15,7 +16,11 @@ import {
   FaCheckCircle,
   FaCog
 } from "react-icons/fa";
-
+import AddMember from "./DashboardPages/Members/AddMember";
+import EventsPage from "./DashboardPages/Events/EventsPage";
+import EventDetails from "./DashboardPages/Events/EventDetails";
+import CreateNewEvent from "./DashboardPages/Events/CreateNewEvent";
+import EditEvent from "./DashboardPages/Events/EditEvent";
 
 const Dashboard = () => {
    const [user, setUser] = useState<any>(null);
@@ -76,16 +81,21 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-50">
       <NavBar user={user} onLogout={handleLogout} navigate={navigate} />
       <SideNav />
-      <Routes>
-        <Route path="/" element={<Overview />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/events" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Events Page</h1></div>} />
-        <Route path="/take-attendance" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Take Attendance Page</h1></div>} />
-        <Route path="/qr-attendance" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">QR Attendance Page</h1></div>} />
-        <Route path="/reports" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Reports Page</h1></div>} />
-        <Route path="/settings" element={<div className="pt-16 lg:ml-64 p-8"><h1 className="text-2xl font-bold">Settings Page</h1></div>} />
-      </Routes>
-    
+      <div className="pt-16 lg:ml-64">
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/members" element={<AddMember />} />
+          <Route path="/add-member" element={<AddMemberPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/new" element={<CreateNewEvent />} />
+          <Route path="/events/edit/:id" element={<EditEvent />} />
+          <Route path="/events/:id" element={<EventDetails />} />
+          <Route path="/take-attendance" element={<div className="p-8"><h1 className="text-2xl font-bold">Take Attendance Page</h1></div>} />
+          <Route path="/qr-attendance" element={<div className="p-8"><h1 className="text-2xl font-bold">QR Attendance Page</h1></div>} />
+          <Route path="/reports" element={<div className="p-8"><h1 className="text-2xl font-bold">Reports Page</h1></div>} />
+          <Route path="/settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings Page</h1></div>} />
+        </Routes>
+      </div>
     </div>
   )
 }

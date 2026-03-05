@@ -16,7 +16,7 @@ import {
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: FaHome, description: "Overview" },
-  { name: "Members", href: "/dashboard/member", icon: FaUsers, description: "Manage members" },
+  { name: "Members", href: "/dashboard/members", icon: FaUsers, description: "Manage members" },
   { name: "Events", href: "/dashboard/events", icon: FaCalendarPlus, description: "Manage events" },
   { name: "Attendance", href: "/dashboard/take-attendance", icon: FaClipboardCheck, description: "Take attendance" },
   { name: "QR Records", href: "/dashboard/qr-attendance", icon: FaQrcode, description: "QR check-ins" },
