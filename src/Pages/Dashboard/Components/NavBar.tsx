@@ -113,7 +113,7 @@ const NavBar = ({ user, onLogout, navigate }: NavBarProps) => {
             </div>
             <div>
               <h1 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold bg-gradient-to-r from-burgundy-700 to-burgundy-600 bg-clip-text text-transparent truncate">
-                FlexiBene
+                CMAS
               </h1>
               <p className="text-xs text-gray-500 hidden sm:block">Attendance Management</p>
             </div>
